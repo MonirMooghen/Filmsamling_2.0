@@ -6,7 +6,6 @@ public class MovieCollection {
     //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private ArrayList<Movie> movieList = new ArrayList<>();
 
-
     //***GETTER METHODS***----------------------------------------------------------------------------------------------
     public ArrayList<Movie> getMovieList() {
         return movieList;
@@ -27,7 +26,7 @@ public class MovieCollection {
         return foundMovies;
     }
 
-    public void editMovieMethod(String title, String newTitle, String newDirector, int newYearCreated,
+    public void editMovie(String title, String newTitle, String newDirector, int newYearCreated,
                                        boolean newInColor, double newLengthMinute, String newGenre) {
         for(Movie movie : movieList){
             if(movie.getTitle().equalsIgnoreCase(title)) {
@@ -40,6 +39,10 @@ public class MovieCollection {
             }
         }
 
+    }
+
+    public void addMovie(String title, String director, int yearCreated,
+                         boolean isInColor, int lengthInMinutes, String genre) {
     }
 
     //------------------------------------------------------------------------------------------------------------------
