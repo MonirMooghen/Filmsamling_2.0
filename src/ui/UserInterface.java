@@ -125,17 +125,39 @@ public class UserInterface {
 
 
     public void editMovie(){
+        String menuOption = "-1";
         System.out.println("Type the movie name to edit : ");
+        // next two lines look for a movie to match
         String movieName= input.nextLine();
-        Movie editedMovie = controller.editMovie(movieName);
-        System.out.println(editedMovie.toString());
-
-        if (editedMovie == null ){
-            System.out.println(" Movie not found, try again!!");
-        } else{
-            System.out.println();
-            System.out.println("Successfully edited.");
+        Movie targetMovie = controller.findMovieToEdit(movieName);
+        // prints "not found" if no movie matched the title
+        if (targetMovie != null){
+            System.out.println(targetMovie.toString());
+        } else {
+            System.out.println("Movie not found!!");
         }
+
+        while (menuOption!= "0"){
+            System.out.println("type 1 to  edit title " + "\n" +
+                    "type 2 to edit director" + "\n" +
+                    "type 3 to edit genre" + "\n" +
+                    "type 4 to edit published date" + "\n" +
+                    "type 5 to edit the duration" + "\n" +
+                    "type 6 to edit movie color info " + "\n" +
+                    "type 0 to exit from edit menu :" + "\n");
+            // Get a string to specify which part to edit
+            menuOption = input.nextLine();
+            if(menuOption.equals("0")) break;
+            System.out.println("Type the new value : ");
+            // Get the replacement value
+            String newValue = input.nextLine();
+            // call the method in controller to edit the specified (targetMovie) movie.
+            Movie editedMovie =  controller.movieEditor(targetMovie, menuOption, newValue);
+            System.out.println(editedMovie.toString());
+        }
+
+
+
     }
     //------------------------------------------------------------------------------------------------------------------
 }

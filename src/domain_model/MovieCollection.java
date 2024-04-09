@@ -44,49 +44,38 @@ MovieCollection {
 //
 //    }
 
-    public Movie editMovie(String title) {
-        Movie targetMovie = null;
-        for (Movie movieToEdit : movieList) {
-            if (movieToEdit.getTitle().equalsIgnoreCase(title)) {
-                targetMovie = movieToEdit;
-            }
-//            if (targetMovie == null) {
-//                return null;
-//
-            String partToEdit= "-1";
-            Scanner sc = new Scanner(System.in);
+    public Movie editMovie(Movie movieToEdit, String partToEdit, String newValue) {
 
-            String newValue = sc.nextLine();
             switch (partToEdit) {
                 case "1": //title
-                    targetMovie.setTitle(newValue);
+                    movieToEdit.setTitle(newValue);
                     break;
 
                 case "2": //director
-                    targetMovie.setDirector(newValue);
+                    movieToEdit.setDirector(newValue);
                     break;
 
                 case "3": //genre
-                    targetMovie.setGenre(newValue);
+                    movieToEdit.setGenre(newValue);
                     break;
 
                 case "4": //year
-                    targetMovie.setYearCreated(Integer.parseInt(newValue));
+                    movieToEdit.setYearCreated(Integer.parseInt(newValue));
                     break;
 
                 case "5": //length in minutes
-                    targetMovie.setLengthMinutes(Integer.parseInt(newValue));
+                    movieToEdit.setLengthMinutes(Integer.parseInt(newValue));
                     break;
 
                 case "6": //colour
                     boolean coloredMovie = (newValue.toLowerCase() == "yes") ? true : false; //? = hvis, : = else
-                    targetMovie.setInColor(coloredMovie);
+                    movieToEdit.setInColor(coloredMovie);
                     break;
 
                 case "0": //exit
                     break;
             }
-        } return targetMovie;
+         return movieToEdit;
     }
 
 
