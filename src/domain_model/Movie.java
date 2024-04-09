@@ -1,26 +1,61 @@
-package domain_model;
-public class Movie {
 
-    //***ATTRIBUTES***---------------------------------------------------------------------------------------------------
+
+
+
+import java.util.Scanner;
+
+public class Movie {
     private String title;
     private String director;
-    private int yearCreated;
-    private boolean isInColor;
-    private double lengthMinutes;
     private String genre;
+    private int yearCreated;
+    private int lengthInMinutes;
+    private boolean isInColor;
+    private int movieId;
 
-    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
-    public Movie(String title, String director, int yearCreated,
-                 boolean isInColor, double lengthMinutes, String genre) {
+
+
+    public void setTitle(String title) {
+
         this.title = title;
+    }
+
+
+    public void setDirector(String director) {
+
         this.director = director;
-        this.yearCreated = yearCreated;
-        this.isInColor = isInColor;
-        this.lengthMinutes = lengthMinutes;
+    }
+
+
+    public void setGenre(String genre) {
+
         this.genre = genre;
     }
 
-    //***GETTER METHODS***----------------------------------------------------------------------------------------------
+
+    public void setYearCreated(int yearCreated) {
+
+        this.yearCreated = yearCreated;
+    }
+
+
+    public void setLengthInMinutes(int lengthInMinutes) {
+
+        this.lengthInMinutes = lengthInMinutes;
+    }
+
+
+    public void setInColor(boolean isInColor) {
+
+        this.isInColor = isInColor;
+
+    }
+
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -29,61 +64,40 @@ public class Movie {
         return director;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
     public int getYearCreated() {
         return yearCreated;
+    }
+
+    public int getLengthInMinutes() {
+        return lengthInMinutes;
     }
 
     public boolean isInColor() {
         return isInColor;
     }
 
-    public double getLengthMinutes() {
-        return lengthMinutes;
+    public int getMovieId() {
+        return movieId;
     }
 
-    public String getGenre() {
-        return genre;
+    public void movieInfo() {
+        String coloredMovie = (isInColor) ? "Yes" : "No";
+        System.out.println(
+                "MovieId: " + movieId + "\n" +
+                        "Movie Title: " + title + "\n" +
+                        "Movie Director: " + director + "\n" +
+                        "Year of Publish: " + yearCreated + "\n" +
+                        "Colored Movie: " + coloredMovie + "\n" +
+                        "Length in minutes: " + lengthInMinutes + "\n" +
+                        "Genre: " + genre + "\n"
+        );
     }
 
 
-    //***SETTER METHODS***----------------------------------------------------------------------------------------------
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
-    public void setYearCreated(int yearCreated) {
-        this.yearCreated = yearCreated;
-    }
-
-    public void setInColor(boolean inColor) {
-        isInColor = inColor;
-    }
-
-    public void setLengthMinutes(double lengthMinutes) {
-        this.lengthMinutes = lengthMinutes;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    //***OTHER METHODS***-----------------------------------------------------------------------------------------------
-    @Override
-    public String toString() {
-        String result = "";
-        result += "Title: " + title + "\n" + "Director: " + director + "\n" + "Year: " + yearCreated + "\n"
-                + "Length in minutes: " + lengthMinutes + "\n" + "Genre: " + genre;
-        if (isInColor) {
-            result += "\n" + "Is in color: Yes";
-        } else {
-            result += "\n" + "Is in color: No";
-        }
-        return result + "\n";
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
 }
+
+

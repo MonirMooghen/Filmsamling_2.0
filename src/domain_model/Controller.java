@@ -1,23 +1,38 @@
-package domain_model;
 
 import java.util.ArrayList;
+
 public class Controller {
+    private ArrayList<Movie> movieList;
 
-    MovieCollection collection;
-    public Controller() {
-        collection = new MovieCollection();
-    }
-    public void addMovie(Movie movie) {
-        collection.addMovie(movie);
-    }
 
-    public ArrayList<Movie> searchMovies(String input) {
-        return collection.searchMovie(input);
+    MovieCollection movieCollection = new MovieCollection();
+
+
+    public void setMovieList() {
+        this.movieList = movieCollection.getMovieList();
     }
 
-    public void editMovie(
-            String title, String fieldToEdit, String newValue) {
-        collection.editMovie(title, fieldToEdit, newValue);
+    public ArrayList<Movie> getMovieList() {
+        return movieList;
     }
+
+
+    public void addMovie(Movie film) {
+        setMovieList();
+        movieList.add(film);
+    }
+
+    public void showList() {
+        movieCollection.showListItems();
+    }
+
+    public ArrayList<Movie> searchMovie(String movieName) {
+        return movieCollection.searchMovie(movieName);
+
+    }
+
 
 }
+
+
+
