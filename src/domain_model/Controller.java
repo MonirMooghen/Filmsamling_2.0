@@ -3,10 +3,16 @@ package domain_model;
 import java.util.ArrayList;
 public class Controller {
 
-    MovieCollection collection;
+    //***OBJECTS***-----------------------------------------------------------------------------------------------------
+    private MovieCollection collection;
+    private Movie movie;
+
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Controller() {
         collection = new MovieCollection();
     }
+
+    //***METHODS***-----------------------------------------------------------------------------------------------------
     public void addMovie(Movie movie) {
         collection.addMovie(movie);
     }
@@ -15,9 +21,13 @@ public class Controller {
         return collection.searchMovie(input);
     }
 
-    public void editMovie(
-            String title, String fieldToEdit, String newValue) {
-        collection.editMovie(title, fieldToEdit, newValue);
+    public Movie editMovie(String title) {
+        return collection.editMovie(title);
     }
 
+    public ArrayList<Movie> getMovieCollection(){
+        return collection.getMovieList();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
 }

@@ -1,73 +1,141 @@
 package ui;
+import domain_model.Controller;
+import domain_model.Movie;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class UserInterface {
 
-    public static void movieEditor() {
+    //***OBJECTS***-----------------------------------------------------------------------------------------------------
+    Scanner input = new Scanner(System.in);
+    Controller controller = new Controller();
 
-        System.out.println("Please type name of the movie: ");
-        String searchQuery = scannerObject.nextLine();
-        ArrayList<Movie> foundedMovies = listOfMovies.searchMovie(searchQuery);
+    //***STARTPROGRAM***------------------------------------------------------------------------------------------------
+    public void startProgram(){
 
-        for (Movie items : foundedMovies) {
-            items.movieInfo();
-        }
+        input.useDelimiter("\n"); //Scanner bug
 
-        System.out.println("Please choose id of the movie to edit: ");
-        int movieToEdit = scannerObject.nextInt();
+        int userChoice;
 
-        for (Movie items : foundedMovies) {
-            if (items.getMovieId() == movieToEdit) {
-                Movie targetMovie = items;
+        menu();
 
-                String partToEdit = "";
-                while (!partToEdit.equals("exit")) {
-                    System.out.println("type title to  edit title " + "\n" +
-                            "type director to edit director" + "\n" +
-                            "type genre to edit genre" + "\n" +
-                            "type yearPublished to edit published date" + "\n" +
-                            "type lengthInMinutes to edit the duration" + "\n" +
-                            "type isInColor to edit movie color info " + "\n" +
-                            "type exit to go to the menu :" + "\n");
+        userChoice = input.nextInt();
 
-                    partToEdit = scannerObject.nextLine();
-                    switch (partToEdit) {
-                        case "title":
-                            System.out.println("Please add the title of the movie: ");
-                            String title = getUserString();
-                            targetMovie.setTitle(title);
-                            break;
-                        case "director":
-                            System.out.println("Please add the Director of the movie: ");
-                            String director = getUserString();
-                            targetMovie.setDirector(director);
-                            break;
-                        case "genre":
-                            System.out.println("Please add the genre of the movie: ");
-                            String genre = getUserString();
-                            targetMovie.setGenre(genre);
-                            break;
-                        case "yearPublished":
-                            System.out.println("Please add the year in which the movie published: ");
-                            int yearCreated = getUserInteger();
-                            targetMovie.setYearCreated(yearCreated);
-                            break;
-                        case "lengthInMinutes":
-                            System.out.println("Please add the length of the movie in minutes: ");
-                            int lengthInMinutes = getUserInteger();
-                            targetMovie.setLengthInMinutes(lengthInMinutes);
-                            break;
-                        case "isInColor":
-                            System.out.println("If it is a colored movie type true else type false : ");
-                            boolean isInColor = scannerObject.nextBoolean();
-                            targetMovie.setInColor(isInColor);
-                            break;
-                        case "exit":
-                            break;
-                    }
-                }
+        switch (userChoice) {
+            case 0 -> {
+                menu();
             }
-        }
+            case 1 -> {
+                addMovie();
+            }
+            case 2 -> {
+                searchMovie();
+            }
+            case 3 -> {
+                printMovieCollection();
+            }
+            case 4 -> {
+                editMovie();
+            }
+            case 5 -> {
+                System.exit(0);
+            }
+            default -> System.out.println("Invalid input");
 
+        }
 
     }
 
+    //***STARTPROGRAM METHODS***----------------------------------------------------------------------------------------
+    public static void menu(){
+        System.out.println("Welcome to your movie collection");
+        System.out.println("********************************");
+        System.out.println("Type '0' to see menu options");
+        System.out.println("Type '1' to add a movie");
+        System.out.println("Type '2' to search for a movie");
+        System.out.println("Type '3' to see your movie collection as a list");
+        System.out.println("Type '4' to edit a movie");
+        System.out.println("Type '5' to exit the program");
+    }
+
+    public void addMovie() {
+        //1. Bruger input - Filmens detaljer
+        input.nextLine();
+        System.out.println("Enter movie title");
+        String title = input.nextLine();
+        System.out.println(title);
+        System.out.println();
+
+        System.out.println("Enter movie director");
+        String director = input.nextLine();
+        System.out.println();
+
+        System.out.println("Enter year created");
+        int yearCreated = input.nextInt();
+        input.nextLine(); //Scanner bug solution
+        System.out.println();
+
+        System.out.println("Is the movie in colour? ('Yes' or 'no)");
+        String color = input.next();
+        boolean isInColor = color.equals("yes");
+        // Lav det andet if statement for boolean color...
+        System.out.println();
+
+        System.out.println("Enter length in minutes");
+        double lengthMinute = input.nextDouble();
+        input.nextLine(); //Scanner bug solution
+        System.out.println();
+
+
+        System.out.println("Enter movie genre");
+        String genre = input.nextLine();
+
+        controller.addMovie(new Movie(title, director, yearCreated, isInColor, lengthMinute, genre));
+
+        System.out.println("The movie has now been added to your movie collection");
+        System.out.println("Movie details:");
+        System.out.println("Title: " + title);
+        System.out.println("Director: " + director);
+        System.out.println("Year created: " + yearCreated);
+        System.out.println("Is the movie in colour?: " + color);
+        System.out.println("Length: " + lengthMinute);
+        System.out.println("Genre: " + genre);
+        System.out.println("...................................");
+
+    }
+
+    public void searchMovie(){
+        //2. Søge efter film
+        System.out.println("Search movie");
+        String search = input.next();
+        ArrayList<Movie> printMovieCollection = controller.searchMovies(search);
+        for (Movie movie : printMovieCollection){
+            System.out.println(movie.toString());
+        }
+
+            System.out.println(printMovieCollection);
+    }
+
+    public void printMovieCollection(){
+        //3. Overblik over hele filmsamlingen
+        System.out.println("Oversigt over din filmsamling");
+        System.out.println(controller.getMovieCollection());
+    }
+
+
+    public void editMovie(){
+        System.out.println("Type the movie name to edit : ");
+        String movieName= input.nextLine();
+        Movie editedMovie = controller.editMovie(movieName);
+        System.out.println(editedMovie.toString());
+
+        if (editedMovie == null ){
+            System.out.println(" Movie not found, try again!!");
+        } else{
+            System.out.println();
+            System.out.println("Successfully edited.");
+        }
+    }
+    //------------------------------------------------------------------------------------------------------------------
 }
