@@ -1,5 +1,4 @@
-
-
+package domain_model;
 
 
 import java.util.Scanner;
