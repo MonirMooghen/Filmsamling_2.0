@@ -151,14 +151,15 @@ public class UserInterface {
     public void editMovie(){
         String menuOption = "-1";
         System.out.println("Type the movie name to edit : ");
-        // next two lines look for a movie to match
-        String movieName= input.nextLine();
+        // scanner bug
+        String movieName= getUserString();
         Movie targetMovie = controller.findMovieToEdit(movieName);
         // prints "not found" if no movie matched the title
         if (targetMovie != null){
             System.out.println(targetMovie.toString());
         } else {
             System.out.println("Movie not found!!");
+            return;
         }
 
         while (menuOption!= "0"){
@@ -183,5 +184,38 @@ public class UserInterface {
 
 
     }
+
     //------------------------------------------------------------------------------------------------------------------
+
+    public String getUserString() {
+
+
+        String userInput;
+        do {
+            userInput = input.nextLine();
+            if (userInput.trim().isEmpty()) {
+                System.out.println("Wrong input try again:");
+            }
+
+        } while (userInput.trim().isEmpty());
+
+        return userInput;
+    }
+
+    public int getUserInteger() {
+
+        int userInput;
+        do {
+            userInput = input.nextInt();
+            if (userInput <= 0) {
+                System.out.println("Wrong input try again:");
+            }
+
+        } while (userInput <= 0);
+
+        return userInput;
+
+    }
 }
+
+
