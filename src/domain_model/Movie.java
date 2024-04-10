@@ -1,4 +1,5 @@
 package domain_model;
+
 public class Movie {
 
     //***ATTRIBUTES***---------------------------------------------------------------------------------------------------
@@ -6,12 +7,12 @@ public class Movie {
     private String director;
     private int yearCreated;
     private boolean isInColor;
-    private double lengthMinutes;
+    private int lengthMinutes;
     private String genre;
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Movie(String title, String director, int yearCreated,
-                 boolean isInColor, double lengthMinutes, String genre) {
+                 boolean isInColor, int lengthMinutes, String genre) {
         this.title = title;
         this.director = director;
         this.yearCreated = yearCreated;
@@ -37,7 +38,7 @@ public class Movie {
         return isInColor;
     }
 
-    public double getLengthMinutes() {
+    public int getLengthMinutes() {
         return lengthMinutes;
     }
 
@@ -63,7 +64,7 @@ public class Movie {
         isInColor = inColor;
     }
 
-    public void setLengthMinutes(double lengthMinutes) {
+    public void setLengthMinutes(int lengthMinutes) {
         this.lengthMinutes = lengthMinutes;
     }
 

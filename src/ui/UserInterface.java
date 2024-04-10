@@ -1,4 +1,5 @@
 package ui;
+
 import domain_model.Controller;
 import domain_model.Movie;
 
@@ -13,13 +14,13 @@ public class UserInterface {
     Controller controller = new Controller();
 
     //***START-PROGRAM***-----------------------------------------------------------------------------------------------
-    public void startProgram(){
+    public void startProgram() {
 
-        int userChoice = Integer.parseInt("-1");
+        int userChoice = -1;
 
-        while (userChoice != 5){
+        while (userChoice != 5) {
             menu();
-            userChoice = Integer.parseInt(input.next());
+            userChoice = input.nextInt();
             switch (userChoice) {
                 case 0 -> {
                     menu();
@@ -49,7 +50,7 @@ public class UserInterface {
     }
 
     //***STARTPROGRAM METHODS***----------------------------------------------------------------------------------------
-    public static void menu(){
+    public static void menu() {
         System.out.println("Welcome to your movie collection");
         System.out.println("********************************");
         System.out.println("Type '0' to see menu options");
@@ -61,28 +62,6 @@ public class UserInterface {
         System.out.println("Type '6' to exit the program");
     }
 
-    public void SeeMenu() {
-        System.out.println("✦✦✦✦✦✦ WELCOME TO THE YOUR MOVIE COLLECTION ✦✦✦✦✦✦");
-        System.out.println("_______________________________________________");
-        System.out.println("|      Type 1       - To see the menu          |");
-        System.out.println("|      Type 2       - To Exit the program      |");
-        System.out.println("-----------------------------------------------");
-        int userInput = Integer.parseInt(input.next());
-        boolean exit = false; //added for at se om loopet stopper
-
-        while (userInput == 1 || userInput == 2) {
-            if (userInput == 2) {
-                System.out.println("Exiting...");
-                System.exit(0);
-                exit = true;
-            } else if (userInput == 1) {
-                menu();
-            } else {
-                System.out.println("*** Input invalid *** \nPlease enter 1 to see the menu or EXIT to end the program");
-                userInput = input.nextInt();
-            }
-        }
-    }
 
     public void addMovie() {
         //1. Bruger input - Filmens detaljer
@@ -99,24 +78,22 @@ public class UserInterface {
         System.out.println("Enter year created");
         int yearCreated = input.nextInt();
         input.nextLine(); //Scanner bug solution
-        System.out.println();
 
         System.out.println("Is the movie in colour? ('Yes' or 'no)");
         String color = input.next();
         boolean isInColor = color.equals("yes");
-        // Lav det andet if statement for boolean color...
-        System.out.println();
+
 
         System.out.println("Enter length in minutes");
-        double lengthMinute = input.nextDouble();
+        int lengthMinute = input.nextInt();
         input.nextLine(); //Scanner bug solution
-        System.out.println();
 
 
         System.out.println("Enter movie genre");
         String genre = input.nextLine();
 
         controller.addMovie(new Movie(title, director, yearCreated, isInColor, lengthMinute, genre));
+        controller.saveListToFile();
 
         System.out.println("The movie has now been added to your movie collection");
         System.out.println("Movie details:");
@@ -130,41 +107,41 @@ public class UserInterface {
 
     }
 
-    public void searchMovie(){
+    public void searchMovie() {
         //2. Søge efter film
         System.out.println("Search movie");
         String search = input.next();
         ArrayList<Movie> printMovieCollection = controller.searchMovies(search);
-        for (Movie movie : printMovieCollection){
+        for (Movie movie : printMovieCollection) {
             System.out.println(movie.toString());
         }
 
-            System.out.println(printMovieCollection);
+        System.out.println(printMovieCollection);
     }
 
-    public void printMovieCollection(){
+    public void printMovieCollection() {
         //3. Overblik over hele filmsamlingen
         System.out.println("Overview of your Movie Collection");
-        for(Movie movie : controller.getMovieCollection()) {
+        for (Movie movie : controller.getMovieCollection()) {
             System.out.println(movie.toString());
         }
     }
 
-    public void editMovie(){
+    public void editMovie() {
         String menuOption = "-1";
         System.out.println("Type the movie name to edit : ");
-        // scanner bug
-        String movieName= getUserString();
+
+        String movieName = getUserString();
         Movie targetMovie = controller.findMovieToEdit(movieName);
-        // prints "not found" if no movie matched the title
-        if (targetMovie != null){
+
+        if (targetMovie != null) {
             System.out.println(targetMovie.toString());
         } else {
             System.out.println("Movie not found!!");
             return;
         }
 
-        while (menuOption!= "0"){
+        while (menuOption != "0") {
             System.out.println("type 1 to  edit title " + "\n" +
                     "type 2 to edit director" + "\n" +
                     "type 3 to edit genre" + "\n" +
@@ -172,16 +149,17 @@ public class UserInterface {
                     "type 5 to edit the duration" + "\n" +
                     "type 6 to edit movie color info " + "\n" +
                     "type 0 to exit from edit menu :" + "\n");
-            // Get a string to specify which part to edit
+
             menuOption = input.nextLine();
-            if(menuOption.equals("0")) break;
+            if (menuOption.equals("0")) break;
             System.out.println("Type the new value: ");
-            // Get the replacement value
+
             String newValue = input.nextLine();
-            // call the method in controller to edit the specified (targetMovie) movie.
-            Movie editedMovie =  controller.movieEditor(targetMovie, menuOption, newValue);
+            Movie editedMovie = controller.movieEditor(targetMovie, menuOption, newValue);
             System.out.println(editedMovie.toString());
+
         }
+
     }
 
     public void deleteMovie() {
