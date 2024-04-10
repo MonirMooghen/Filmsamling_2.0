@@ -11,7 +11,7 @@ public class UserInterface {
     Scanner input = new Scanner(System.in);
     Controller controller = new Controller();
 
-    //***START-PROGRAM***------------------------------------------------------------------------------------------------
+    //***START-PROGRAM***-----------------------------------------------------------------------------------------------
     public void startProgram(){
 
         int userChoice = -1;
@@ -218,6 +218,7 @@ public class UserInterface {
         return userInput;
 
     }
+    //------------------------------------------------------------------------------------------------------------------
 }
 
 
