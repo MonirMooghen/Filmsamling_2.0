@@ -191,7 +191,8 @@ public class UserInterface {
         String userInput;
         do {
 
-            userInput = input.next();
+            userInput = input.nextLine();
+            input.nextLine();
             if (userInput.trim().isEmpty()) {
                 System.out.println("Wrong input try again:");
             }
@@ -206,6 +207,7 @@ public class UserInterface {
         int userInput;
         do {
             userInput = input.nextInt();
+            input.nextLine();
             if (userInput <= 0) {
                 System.out.println("Wrong input try again:");
             }
