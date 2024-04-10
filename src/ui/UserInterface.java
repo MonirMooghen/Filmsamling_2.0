@@ -16,34 +16,35 @@ public class UserInterface {
 
         input.useDelimiter("\n"); //Scanner bug
 
-        int userChoice;
+        int userChoice = -1;
 
-        menu();
+        while (userChoice != 5){
+            menu();
+            userChoice = input.nextInt();
+            switch (userChoice) {
+                case 0 -> {
+                    menu();
+                }
+                case 1 -> {
+                    addMovie();
+                }
+                case 2 -> {
+                    searchMovie();
+                }
+                case 3 -> {
+                    printMovieCollection();
+                }
+                case 4 -> {
+                    editMovie();
+                }
+                case 5 -> {
+                    System.exit(0);
+                }
+                default -> System.out.println("Invalid input");
 
-        userChoice = input.nextInt();
-
-        switch (userChoice) {
-            case 0 -> {
-                menu();
             }
-            case 1 -> {
-                addMovie();
-            }
-            case 2 -> {
-                searchMovie();
-            }
-            case 3 -> {
-                printMovieCollection();
-            }
-            case 4 -> {
-                editMovie();
-            }
-            case 5 -> {
-                System.exit(0);
-            }
-            default -> System.out.println("Invalid input");
-
         }
+
 
     }
 
