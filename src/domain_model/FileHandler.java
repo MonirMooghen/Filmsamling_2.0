@@ -24,6 +24,7 @@ public class FileHandler {
             String genre = attributes[1];
             String year = attributes[2];
             String director = attributes[3];
+            // need to finish it later
 
 
         }
