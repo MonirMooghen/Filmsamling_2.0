@@ -42,7 +42,6 @@ public class UserInterface {
 
             }
         }
-
     }
 
     //***STARTPROGRAM METHODS***----------------------------------------------------------------------------------------
@@ -145,7 +144,6 @@ public class UserInterface {
             System.out.println(movie.toString());
         }
     }
-
 
     public void editMovie(){
         String menuOption = "-1";

@@ -28,14 +28,22 @@ public class FileHandler {
         while(sc.hasNext()) {
             String line = sc.nextLine(); //Split linje og læg tokens i attributes
             String[] attributes = line.split(",");
-            Movie movie = new Movie(
-                                        attributes[0],   // title (String)
-                                             attributes[1],   // director (String)
-                    (Integer.parseInt(    attributes[2])), // yearCreated (int)
-                    (Boolean.parseBoolean(attributes[3])), // isinColor (boolean)
-                    (Double.parseDouble(  attributes[4])), // lengthMinutes (double)
-                                             attributes[5]    // genre (String)
-            );
+            String title = attributes[0];
+            String director = attributes[1];
+            int yearCreated = Integer.parseInt(attributes[2]);
+            boolean isInColor = Boolean.parseBoolean(attributes[3]);
+            double lengthMinutes = Double.parseDouble(attributes[4]);
+            String genre = attributes[5];
+            var movie = new Movie(title,director,yearCreated,isInColor,lengthMinutes,genre);
+
+//            var movie = new Movie(
+//                                             attributes[0],   // title (String)
+//                                             attributes[1],   // director (String)
+//                    (Integer.parseInt(    attributes[2])), // yearCreated (int)
+//                    (Boolean.parseBoolean(attributes[3])), // isinColor (boolean)
+//                    (Double.parseDouble(  attributes[4])), // lengthMinutes (double)
+//                                             attributes[5]    // genre (String)
+//            );
 
             movieListFile.add(movie);
           //System.out.println(movie.toString());
