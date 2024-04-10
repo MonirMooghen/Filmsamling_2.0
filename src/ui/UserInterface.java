@@ -3,6 +3,7 @@ import domain_model.Controller;
 import domain_model.Movie;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -14,11 +15,11 @@ public class UserInterface {
     //***START-PROGRAM***-----------------------------------------------------------------------------------------------
     public void startProgram(){
 
-        int userChoice = -1;
+        int userChoice = Integer.parseInt("-1");
 
         while (userChoice != 5){
             menu();
-            userChoice = input.nextInt();
+            userChoice = Integer.parseInt(input.next());
             switch (userChoice) {
                 case 0 -> {
                     menu();
@@ -36,6 +37,9 @@ public class UserInterface {
                     editMovie();
                 }
                 case 5 -> {
+                    deleteMovie();
+                }
+                case 6 -> {
                     System.exit(0);
                 }
                 default -> System.out.println("Invalid input");
@@ -53,7 +57,8 @@ public class UserInterface {
         System.out.println("Type '2' to search for a movie");
         System.out.println("Type '3' to see your movie collection as a list");
         System.out.println("Type '4' to edit a movie");
-        System.out.println("Type '5' to exit the program");
+        System.out.println("Type '5' to delete a movie");
+        System.out.println("Type '6' to exit the program");
     }
 
     public void SeeMenu() {
@@ -62,7 +67,7 @@ public class UserInterface {
         System.out.println("|      Type 1       - To see the menu          |");
         System.out.println("|      Type 2       - To Exit the program      |");
         System.out.println("-----------------------------------------------");
-        int userInput = input.nextInt();
+        int userInput = Integer.parseInt(input.next());
         boolean exit = false; //added for at se om loopet stopper
 
         while (userInput == 1 || userInput == 2) {
@@ -179,9 +184,27 @@ public class UserInterface {
         }
     }
 
-//    public void RemoveMovie(){
-//
-//    }
+    public void deleteMovie() {
+        System.out.println("Please enter the title of the movie you wish to delete.");
+        input.nextLine();
+        boolean movieFound = false;
+        String userInput = input.nextLine();
+
+        Iterator<Movie> iterator = controller.getMovieCollection().iterator();
+        while (iterator.hasNext()) {
+            Movie movie = iterator.next();
+            if (userInput.equalsIgnoreCase(movie.getTitle())) {
+                iterator.remove();
+                System.out.println(movie.getTitle() + " has been successfully deleted.");
+                movieFound = true;
+                break;
+            }
+        }
+        if (!movieFound) {
+            System.out.println("There is no movie by that title in your collection.");
+        }
+    }
+
 
     //***OTHER METHODS***-----------------------------------------------------------------------------------------------
 

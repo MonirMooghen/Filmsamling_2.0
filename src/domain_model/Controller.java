@@ -42,5 +42,9 @@ public class Controller {
         return collection.getMovieList();
     }
 
+    public void deleteMovie(Movie movieToDelete) {
+        collection.deleteMovie(movieToDelete);
+    }
+
     //------------------------------------------------------------------------------------------------------------------
 }

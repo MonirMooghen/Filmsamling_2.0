@@ -86,6 +86,14 @@ MovieCollection {
          return movieToEdit;
     }
 
-
-        //------------------------------------------------------------------------------------------------------------------
+    public void deleteMovie(Movie movieToDelete) {
+        for (int i = 0; i < movieList.size(); i++) {
+            Movie movie = movieList.get(i);
+            if (movie.equals(movieToDelete)) {
+                movieList.remove(i);
+                break;
+            }
+        }
+        fileHandler.saveMovieToFile(movieList);
     }
+}
