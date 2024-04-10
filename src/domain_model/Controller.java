@@ -37,7 +37,7 @@ public class Controller {
         return targetMovie;
     }
 
-    public Movie movieEditor(Movie movieToEdit, String partToEdit, String newValue) {
+    public Movie movieEditor(Movie movieToEdit, int partToEdit, String newValue) {
         return collection.editMovie(movieToEdit, partToEdit, newValue);
     }
 
