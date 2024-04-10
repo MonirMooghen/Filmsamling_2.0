@@ -1,11 +1,13 @@
 package domain_model;
 
 import java.util.ArrayList;
+
 public class Controller {
 
     //***OBJECTS***-----------------------------------------------------------------------------------------------------
     private MovieCollection collection;
     private Movie movie;
+    private FileHandler dbManager = new FileHandler();
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Controller() {
@@ -21,7 +23,7 @@ public class Controller {
         return collection.searchMovie(input);
     }
 
-   // this method search for a single match and return a movie object if found
+
     public Movie findMovieToEdit(String movieTitle) {
         Movie targetMovie = null;
         ArrayList<Movie> movieList = getMovieCollection();
@@ -35,12 +37,16 @@ public class Controller {
         return targetMovie;
     }
 
-    public Movie movieEditor(Movie movieToEdit, String partToEdit, String newValue){
+    public Movie movieEditor(Movie movieToEdit, String partToEdit, String newValue) {
         return collection.editMovie(movieToEdit, partToEdit, newValue);
     }
-    public ArrayList<Movie> getMovieCollection(){
+
+    public ArrayList<Movie> getMovieCollection() {
         return collection.getMovieList();
     }
 
+    public void saveListToFile() {
+        dbManager.saveMovieToFile(getMovieCollection());
+    }
     //------------------------------------------------------------------------------------------------------------------
 }

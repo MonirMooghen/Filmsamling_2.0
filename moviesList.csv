@@ -1,26 +1,25 @@
-Title,Director,Year Created,Is in Color,Length (Minutes),Genre
-The Shawshank Redemption,Frank Darabont,1994,Yes,142,Drama
-The Godfather,Francis Ford Coppola,1972,Yes,175,Crime
-The Dark Knight,Christopher Nolan,2008,Yes,152,Action
-Schindler's List,Steven Spielberg,1993,Yes,195,History
-Pulp Fiction,Quentin Tarantino,1994,Yes,154,Crime
-The Lord of the Rings: The Return of the King,Peter Jackson,2003,Yes,201,Fantasy
-Forrest Gump,Robert Zemeckis,1994,Yes,142,Drama
-Inception,Christopher Nolan,2010,Yes,148,Action
-The Matrix,Lana Wachowski,1999,Yes,136,Action
-The Silence of the Lambs,Jonathan Demme,1991,Yes,118,Thriller
-The Shawshank Redemption,Frank Darabont,1994,Yes,142,Drama
-The Godfather: Part II,Francis Ford Coppola,1974,Yes,202,Crime
-The Lord of the Rings: The Fellowship of the Ring,Peter Jackson,2001,Yes,178,Fantasy
-Fight Club,David Fincher,1999,Yes,139,Drama
-Forrest Gump,Robert Zemeckis,1994,Yes,142,Drama
-Goodfellas,Martin Scorsese,1990,Yes,146,Crime
-The Lord of the Rings: The Two Towers,Peter Jackson,2002,Yes,179,Fantasy
-The Matrix Reloaded,Lana Wachowski,2003,Yes,138,Action
-Se7en,David Fincher,1995,Yes,127,Thriller
-City of God,Fernando Meirelles,2002,Yes,130,Crime
-Life Is Beautiful,Roberto Benigni,1997,Yes,116,Comedy
-The Usual Suspects,Bryan Singer,1995,Yes,106,Thriller
-The Lion King,Roger Allers,1994,Yes,88,Animation
-Spirited Away, Hayao Miyazaki,2001,Yes,125,Animation
-
+The Shawshank Redemption,Frank Darabont,1994,true,142,Drama
+The Godfather,Francis Ford Coppola,1972,true,175,Crime
+The Dark Knight,Christopher Nolan,2008,true,152,Action
+Schindler's List,Steven Spielberg,1993,true,195,History
+Pulp Fiction,Quentin Tarantino,1994,true,154,Crime
+The Lord of the Rings: The Return of the King,Peter Jackson,2003,true,201,Fantasy
+Forrest Gump,Robert Zemeckis,1994,true,142,Drama
+Inception,Christopher Nolan,2010,true,148,Action
+The Matrix,Lana Wachowski,1999,true,136,Action
+The Silence of the Lambs,Jonathan Demme,1991,true,118,Thriller
+The Shawshank Redemption,Frank Darabont,1994,true,142,Drama
+The Godfather: Part II,Francis Ford Coppola,1974,true,202,Crime
+The Lord of the Rings: The Fellowship of the Ring,Peter Jackson,2001,true,178,Fantasy
+Fight Club,David Fincher,1999,true,139,Drama
+Forrest Gump,Robert Zemeckis,1994,true,142,Drama
+Goodfellas,Martin Scorsese,1990,true,146,Crime
+The Lord of the Rings: The Two Towers,Peter Jackson,2002,true,179,Fantasy
+The Matrix Reloaded,Lana Wachowski,2003,true,138,Action
+Se7en,David Fincher,1995,true,127,Thriller
+City of God,Fernando Meirelles,2002,true,130,Crime
+Life Is Beautiful,Roberto Benigni,1997,true,116,Comedy
+The Usual Suspects,Bryan Singer,1995,true,106,Thriller
+The Lion King,Roger Allers,1994,true,88,Animation
+Spirited Away, Hayao Miyazaki,2001,true,125,Animation
+hooshang,mashang,1091,false,120,drama
