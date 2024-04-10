@@ -14,8 +14,6 @@ public class UserInterface {
     //***START-PROGRAM***------------------------------------------------------------------------------------------------
     public void startProgram(){
 
-        input.useDelimiter("\n"); //Scanner bug
-
         int userChoice = -1;
 
         while (userChoice != 5){
@@ -192,7 +190,8 @@ public class UserInterface {
 
         String userInput;
         do {
-            userInput = input.nextLine();
+
+            userInput = input.next();
             if (userInput.trim().isEmpty()) {
                 System.out.println("Wrong input try again:");
             }
