@@ -43,7 +43,6 @@ public class UserInterface {
             }
         }
 
-
     }
 
     //***STARTPROGRAM METHODS***----------------------------------------------------------------------------------------
@@ -141,8 +140,10 @@ public class UserInterface {
 
     public void printMovieCollection(){
         //3. Overblik over hele filmsamlingen
-        System.out.println("Oversigt over din filmsamling");
-        System.out.println(controller.getMovieCollection());
+        System.out.println("Overview of your Movie Collection");
+        for(Movie movie : controller.getMovieCollection()) {
+            System.out.println(movie.toString());
+        }
     }
 
 
@@ -171,16 +172,13 @@ public class UserInterface {
             // Get a string to specify which part to edit
             menuOption = input.nextLine();
             if(menuOption.equals("0")) break;
-            System.out.println("Type the new value : ");
+            System.out.println("Type the new value: ");
             // Get the replacement value
             String newValue = input.nextLine();
             // call the method in controller to edit the specified (targetMovie) movie.
             Movie editedMovie =  controller.movieEditor(targetMovie, menuOption, newValue);
             System.out.println(editedMovie.toString());
         }
-
-
-
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -191,7 +189,8 @@ public class UserInterface {
         String userInput;
         do {
 
-            userInput = input.next();
+            userInput = input.nextLine();
+            input.nextLine();
             if (userInput.trim().isEmpty()) {
                 System.out.println("Wrong input try again:");
             }
@@ -202,10 +201,10 @@ public class UserInterface {
     }
 
     public int getUserInteger() {
-
         int userInput;
         do {
             userInput = input.nextInt();
+            input.nextLine();
             if (userInput <= 0) {
                 System.out.println("Wrong input try again:");
             }

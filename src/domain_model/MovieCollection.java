@@ -1,5 +1,6 @@
 package domain_model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +9,13 @@ MovieCollection {
 
     //***OBJECTS***--------------------------------------------------------------------------------------------------
     private ArrayList<Movie> movieList = new ArrayList<>();
+    private FileHandler fileHandler = new FileHandler();
+
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
+    public MovieCollection(){
+        this.movieList = fileHandler.loadMovieDataToFile();
+
+    }
 
     //***GETTER METHODS***----------------------------------------------------------------------------------------------
     public ArrayList<Movie> getMovieList() {
