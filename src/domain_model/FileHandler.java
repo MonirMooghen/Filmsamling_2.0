@@ -1,12 +1,13 @@
 package domain_model;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileHandler {
 
-    //***OBJECTS***----------------------------------
+    //***OBJECTS***-----------------------------------------------------------------------------------------------------
     File file = new File("moviesList.csv");
     private ArrayList<Movie> movieListFile = new ArrayList<>();
 
@@ -41,6 +42,19 @@ public class FileHandler {
         }
         sc.close();
         return movieListFile;
+    }
+
+    public void saveMovieToFile(ArrayList<Movie> movieList){
+        PrintStream saveFile = null;
+        try {
+            saveFile = new PrintStream("moviesList.csv");
+            for (Movie movie : movieList) {
+                saveFile.println(movie);
+            }
+            saveFile.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------

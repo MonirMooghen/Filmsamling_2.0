@@ -1,26 +1,175 @@
-Title,Director,Year Created,Is in Color,Length (Minutes),Genre
-The Shawshank Redemption,Frank Darabont,1994,Yes,142,Drama
-The Godfather,Francis Ford Coppola,1972,Yes,175,Crime
-The Dark Knight,Christopher Nolan,2008,Yes,152,Action
-Schindler's List,Steven Spielberg,1993,Yes,195,History
-Pulp Fiction,Quentin Tarantino,1994,Yes,154,Crime
-The Lord of the Rings: The Return of the King,Peter Jackson,2003,Yes,201,Fantasy
-Forrest Gump,Robert Zemeckis,1994,Yes,142,Drama
-Inception,Christopher Nolan,2010,Yes,148,Action
-The Matrix,Lana Wachowski,1999,Yes,136,Action
-The Silence of the Lambs,Jonathan Demme,1991,Yes,118,Thriller
-The Shawshank Redemption,Frank Darabont,1994,Yes,142,Drama
-The Godfather: Part II,Francis Ford Coppola,1974,Yes,202,Crime
-The Lord of the Rings: The Fellowship of the Ring,Peter Jackson,2001,Yes,178,Fantasy
-Fight Club,David Fincher,1999,Yes,139,Drama
-Forrest Gump,Robert Zemeckis,1994,Yes,142,Drama
-Goodfellas,Martin Scorsese,1990,Yes,146,Crime
-The Lord of the Rings: The Two Towers,Peter Jackson,2002,Yes,179,Fantasy
-The Matrix Reloaded,Lana Wachowski,2003,Yes,138,Action
-Se7en,David Fincher,1995,Yes,127,Thriller
-City of God,Fernando Meirelles,2002,Yes,130,Crime
-Life Is Beautiful,Roberto Benigni,1997,Yes,116,Comedy
-The Usual Suspects,Bryan Singer,1995,Yes,106,Thriller
-The Lion King,Roger Allers,1994,Yes,88,Animation
-Spirited Away, Hayao Miyazaki,2001,Yes,125,Animation
+Title: The Shawshank Redemption
+Director: Frank Darabont
+Year: 1994
+Length in minutes: 142.0
+Genre: Drama
+Is in color: No
+
+Title: The Godfather
+Director: Francis Ford Coppola
+Year: 1972
+Length in minutes: 175.0
+Genre: Crime
+Is in color: No
+
+Title: The Dark Knight
+Director: Christopher Nolan
+Year: 2008
+Length in minutes: 152.0
+Genre: Action
+Is in color: No
+
+Title: Schindler's List
+Director: Steven Spielberg
+Year: 1993
+Length in minutes: 195.0
+Genre: History
+Is in color: No
+
+Title: Pulp Fiction
+Director: Quentin Tarantino
+Year: 1994
+Length in minutes: 154.0
+Genre: Crime
+Is in color: No
+
+Title: The Lord of the Rings: The Return of the King
+Director: Peter Jackson
+Year: 2003
+Length in minutes: 201.0
+Genre: Fantasy
+Is in color: No
+
+Title: Forrest Gump
+Director: Robert Zemeckis
+Year: 1994
+Length in minutes: 142.0
+Genre: Drama
+Is in color: No
+
+Title: Inception
+Director: Christopher Nolan
+Year: 2010
+Length in minutes: 148.0
+Genre: Action
+Is in color: No
+
+Title: The Matrix
+Director: Lana Wachowski
+Year: 1999
+Length in minutes: 136.0
+Genre: Action
+Is in color: No
+
+Title: The Silence of the Lambs
+Director: Jonathan Demme
+Year: 1991
+Length in minutes: 118.0
+Genre: Thriller
+Is in color: No
+
+Title: The Shawshank Redemption
+Director: Frank Darabont
+Year: 1994
+Length in minutes: 142.0
+Genre: Drama
+Is in color: No
+
+Title: The Godfather: Part II
+Director: Francis Ford Coppola
+Year: 1974
+Length in minutes: 202.0
+Genre: Crime
+Is in color: No
+
+Title: The Lord of the Rings: The Fellowship of the Ring
+Director: Peter Jackson
+Year: 2001
+Length in minutes: 178.0
+Genre: Fantasy
+Is in color: No
+
+Title: Fight Club
+Director: David Fincher
+Year: 1999
+Length in minutes: 139.0
+Genre: Drama
+Is in color: No
+
+Title: Forrest Gump
+Director: Robert Zemeckis
+Year: 1994
+Length in minutes: 142.0
+Genre: Drama
+Is in color: No
+
+Title: Goodfellas
+Director: Martin Scorsese
+Year: 1990
+Length in minutes: 146.0
+Genre: Crime
+Is in color: No
+
+Title: The Lord of the Rings: The Two Towers
+Director: Peter Jackson
+Year: 2002
+Length in minutes: 179.0
+Genre: Fantasy
+Is in color: No
+
+Title: The Matrix Reloaded
+Director: Lana Wachowski
+Year: 2003
+Length in minutes: 138.0
+Genre: Action
+Is in color: No
+
+Title: Se7en
+Director: David Fincher
+Year: 1995
+Length in minutes: 127.0
+Genre: Thriller
+Is in color: No
+
+Title: City of God
+Director: Fernando Meirelles
+Year: 2002
+Length in minutes: 130.0
+Genre: Crime
+Is in color: No
+
+Title: Life Is Beautiful
+Director: Roberto Benigni
+Year: 1997
+Length in minutes: 116.0
+Genre: Comedy
+Is in color: No
+
+Title: The Usual Suspects
+Director: Bryan Singer
+Year: 1995
+Length in minutes: 106.0
+Genre: Thriller
+Is in color: No
+
+Title: The Lion King
+Director: Roger Allers
+Year: 1994
+Length in minutes: 88.0
+Genre: Animation
+Is in color: No
+
+Title: Spirited Away
+Director:  Hayao Miyazaki
+Year: 2001
+Length in minutes: 125.0
+Genre: Animation
+Is in color: No
+
+Title: va
+Director: va
+Year: 134
+Length in minutes: 1893.0
+Genre: va
+Is in color: Yes
 
