@@ -1,5 +1,7 @@
 package domain_model;
 
+import data_source.FileHandler;
+
 import java.util.ArrayList;
 
 public class Controller {
@@ -7,11 +9,10 @@ public class Controller {
     //***OBJECTS***-----------------------------------------------------------------------------------------------------
     private MovieCollection collection;
     private Movie movie;
-    private FileHandler dbManager = new FileHandler();
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public Controller() {
-        collection = new MovieCollection();
+        collection = new MovieCollection(new FileHandler());
     }
 
     //***METHODS***-----------------------------------------------------------------------------------------------------
@@ -32,9 +33,6 @@ public class Controller {
         return collection.getMovieList();
     }
 
-    public void saveListToFile() {
-        dbManager.saveMovieToFile(getMovieCollection());
-    }
 
     public boolean deleteMovie(String movieTitle) {
         return collection.deleteMovie(movieTitle);

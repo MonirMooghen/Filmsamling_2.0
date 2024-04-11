@@ -1,19 +1,20 @@
 package domain_model;
-import comparator.*;
-import java.io.File;
+
+import data_source.FileHandler;
+import data_source.FileHandlerInterface;
+
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
 
 public class
 MovieCollection {
 
     //***OBJECTS***--------------------------------------------------------------------------------------------------
     private ArrayList<Movie> movieList = new ArrayList<>();
-    private FileHandler fileHandler = new FileHandler();
+    private FileHandlerInterface fileHandler = new FileHandler();
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
-    public MovieCollection(){
+    public MovieCollection(FileHandlerInterface fileHandler){
+        this.fileHandler = fileHandler;
         this.movieList = fileHandler.loadMovieDataToFile();
     }
 
@@ -25,6 +26,7 @@ MovieCollection {
     //***METHODS***-----------------------------------------------------------------------------------------------------
     public void addMovie(Movie movie) {
         movieList.add(movie);
+        fileHandler.saveMovieToFile(movieList);
     }
 
     public ArrayList<Movie> searchMovie(String movieName) {

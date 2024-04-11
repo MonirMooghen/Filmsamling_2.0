@@ -3,10 +3,11 @@ package ui;
 import comparator.DirectorComparator;
 import comparator.TitleComparator;
 import domain_model.Controller;
-import domain_model.FileHandler;
 import domain_model.Movie;
 import domain_model.MovieCollection;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.*;
 
 public class UserInterface {
@@ -99,7 +100,6 @@ public class UserInterface {
 
 
             controller.addMovie(new Movie(title, director, yearCreated, isInColor, lengthMinute, genre));
-            controller.saveListToFile();
 
             System.out.println("The movie has now been added to your movie collection");
             System.out.println("Movie details:");
@@ -127,7 +127,6 @@ public class UserInterface {
         public void printMovieCollection () {
             //3. Overblik over hele filmsamlingen
             System.out.println("Overview of your Movie Collection");
-            //controller.sortTitle();
             for (Movie movie : controller.getMovieCollection()) {
                 System.out.println(movie.toString());
             }

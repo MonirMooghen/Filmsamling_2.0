@@ -1,4 +1,6 @@
-package domain_model;
+package data_source;
+
+import domain_model.Movie;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,7 +8,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileHandler {
+public class FileHandler implements FileHandlerInterface {
 
     //***OBJECTS***-----------------------------------------------------------------------------------------------------
     File file = new File("moviesList.csv");
