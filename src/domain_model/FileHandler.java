@@ -19,7 +19,7 @@ public class FileHandler {
 
         try {
             sc = new Scanner(file);
-            sc.nextLine(); //skip første linje
+           // sc.nextLine(); //skip første linj- delete because our file has not title, genre etc ..
 
         } catch (FileNotFoundException e) {
             System.out.println("File is not found");
@@ -33,7 +33,7 @@ public class FileHandler {
             String title = attributes[0];
             String director = attributes[1];
             int yearCreated = Integer.parseInt(attributes[2]);
-            boolean isInColor = attributes[3].equalsIgnoreCase("yes");
+            boolean isInColor = Boolean.parseBoolean(attributes[3]);
             int lengthMinutes = Integer.parseInt(attributes[4]);
             String genre = attributes[5];
             var movie = new Movie(title, director, yearCreated, isInColor, lengthMinutes, genre);
