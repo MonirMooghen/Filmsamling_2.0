@@ -159,8 +159,24 @@ public class UserInterface {
 
         }
 
+        public void deleteMovie() {
+            System.out.println("Which movie would you like to delete? \nSearch movie by title (ex. 'Batman')");
+            String userInput = input.nextLine();
 
-        //***OTHER METHODS***-----------------------------------------------------------------------------------------------
+            boolean output = controller.deleteMovie(userInput);
+
+            if (!output) {
+                System.out.println("No movie by that name exists in the collection.\n");
+            } else {
+                System.out.println("The movie was successfully deleted.\n");
+            }
+
+        }
+
+
+
+
+        //***OTHER METHODS***-------------------------------------------------------------------------------------------
 
         public String getUserString () {
 
