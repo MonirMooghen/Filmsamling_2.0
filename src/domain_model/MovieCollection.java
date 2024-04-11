@@ -94,5 +94,58 @@ MovieCollection {
      }
     }
 
+    public String sortTitle() {
+        movieList.sort(new TitleComparator());
+        for (Movie movieTitle : movieList) {
+            return movieTitle.getTitle();
+        }
+        return null;
+    }
+
+   public String sortDirector() {
+        movieList.sort(new DirectorComparator());
+        for (Movie movieDirector : movieList) {
+            return movieDirector.getDirector();
+        }
+        return null;
+   }
+
+    public int sortYearCreated() {
+        movieList.sort(new YearCreatedComparator());
+        for (Movie movieYearCreated : movieList) {
+            return movieYearCreated.getYearCreated();
+        }
+        return null;
+    }
+
+    public boolean sortIsInColor() {
+        movieList.sort(new IsInColorComparator());
+        for (Movie movieIsInColor : movieList) {
+            return movieIsInColor.getIsInColor();
+        }
+        return null;
+    }
+
+    public double lenghtMinutes() {
+        movieList.sort(new LengthMinutesComparator());
+        for (Movie movieLengthMinutes : movieList) {
+            return movieLengthMinutes.getLengthMinutes();
+        }
+        return null;
+    }
+
+    public String sortGenre() {
+        movieList.sort(new GenreComparator());
+        for (Movie movieGenre : movieList) {
+            return movieGenre.getGenre();
+        }
+        return null;
+    }
+
+
+
+
+
+
 
 }
