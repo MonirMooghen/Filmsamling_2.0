@@ -1,12 +1,13 @@
 package ui;
 
+import comparator.DirectorComparator;
+import comparator.TitleComparator;
 import domain_model.Controller;
 import domain_model.FileHandler;
 import domain_model.Movie;
+import domain_model.MovieCollection;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class UserInterface {
 
@@ -15,14 +16,14 @@ public class UserInterface {
     Controller controller = new Controller();
 
     //***START-PROGRAM***-----------------------------------------------------------------------------------------------
-    public void startProgram() {
 
-        int userChoice = Integer.parseInt("-1");
+    int userChoice = Integer.parseInt("-1");
+
+    public void startProgram() {
 
             while (userChoice != 6) {
                 menu();
-                userChoice = getUserInteger(6);
-
+                userChoice = getUserInteger(-1,7);
 
                 switch (userChoice) {
                     case 0 -> {
@@ -35,6 +36,7 @@ public class UserInterface {
                         searchMovie();
                     }
                     case 3 -> {
+                        controller.sortTitle();
                         printMovieCollection();
                     }
                     case 4 -> {
@@ -44,6 +46,9 @@ public class UserInterface {
                        deleteMovie();
                     }
                     case 6 -> {
+                        sortMovies();
+                    }
+                    case 7 -> {
                         System.exit(0);
                     }
                     default -> System.out.println("Invalid input");
@@ -62,7 +67,8 @@ public class UserInterface {
         System.out.println("Type '3' to see your movie collection as a list");
         System.out.println("Type '4' to edit a movie");
         System.out.println("Type '5' to delete a movie");
-        System.out.println("Type '6' to exit the program");
+        System.out.println("Type '6' to sort your movie collection");
+        System.out.println("Type '7' to exit the program");
     }
 
 
@@ -77,7 +83,7 @@ public class UserInterface {
             System.out.println(director);
 
             System.out.println("Enter year created");
-            int yearCreated = getUserInteger(2024);
+            int yearCreated = getUserInteger(1900, 2024);
 
             System.out.println("Is the movie in colour? ('Yes' or 'no)");
             String color = getUserString();
@@ -85,7 +91,7 @@ public class UserInterface {
 
 
             System.out.println("Enter length in minutes");
-            int lengthMinute = getUserInteger(800);
+            int lengthMinute = getUserInteger(0,800);
 
 
             System.out.println("Enter movie genre");
@@ -121,6 +127,7 @@ public class UserInterface {
         public void printMovieCollection () {
             //3. Overblik over hele filmsamlingen
             System.out.println("Overview of your Movie Collection");
+            //controller.sortTitle();
             for (Movie movie : controller.getMovieCollection()) {
                 System.out.println(movie.toString());
             }
@@ -149,7 +156,7 @@ public class UserInterface {
                         "type 6 to edit movie color info " + "\n" +
                         "type 0 to exit from edit menu :" + "\n");
 
-                menuOption = getUserInteger(6);
+                menuOption = getUserInteger(-1,7);
                 if (menuOption == 0) break;
                 System.out.println("Type the new value: ");
                 String newValue = getUserString();
@@ -172,10 +179,152 @@ public class UserInterface {
 
         }
 
+        public void sortMovies() {
+            System.out.println("");
+            System.out.println("Type '1' to sort title\n" +
+                    "Type '2' to sort director\n" +
+                    "Type '3' to sort year created\n" +
+                    "Type '4' to sort color\n" +
+                    "Type '5' to sort duration in minutes\n" +
+                    "Type '6' to sort genre\n");
+
+            userChoice = Integer.parseInt(input.next());
+
+                switch (userChoice){
+                    case 1 -> {
+                          System.out.println("Do you want to add a secondary sorting option?");
+                          System.out.println("Type '1' for yes\nType '2' for no");
+                          int extraSort = getUserInteger(0, 3);
+                          if (extraSort == 1){
+                              secondarySortOption(userChoice);
+                              controller.sortTitle();
+
+                          } else{
+                              controller.sortTitle();
+                              printMovieCollection();
+                          }
+
+                    }
+                    case 2 -> {
+                          System.out.println("Do you want to add a secondary sorting option?");
+                          System.out.println("Type '1' for yes\nType '2' for no");
+                        int extraSort = getUserInteger(0, 3);
+                        if (extraSort == 1){
+                            secondarySortOption(userChoice);
+                            controller.sortDirector();
 
 
+                        } else{
+                            controller.sortDirector();
+                            printMovieCollection();
+                        }
+                    }
+                    case 3 -> {
+                        System.out.println("Do you want to add a secondary sorting option?");
+                        System.out.println("Type '1' for yes\nType '2' for no");
+                        int extraSort = getUserInteger(0, 3);
+                        if (extraSort == 1){
+                            secondarySortOption(userChoice);
+                            controller.sortYearCreated();
 
-        //***OTHER METHODS***-------------------------------------------------------------------------------------------
+
+                        } else{
+                            controller.sortYearCreated();
+                            printMovieCollection();
+                        }
+                    }
+                    case 4 -> {
+                        System.out.println("Do you want to add a secondary sorting option?");
+                        System.out.println("Type '1' for yes\nType '2' for no");
+
+                        int extraSort = getUserInteger(0, 3);
+                        if (extraSort == 1){
+                            secondarySortOption(userChoice);
+                            controller.sortIsInColor();
+
+
+                        } else{
+                            controller.sortIsInColor();
+                            printMovieCollection();
+                        }
+
+                    }
+                    case 5 -> {
+                        System.out.println("Do you want to add a secondary sorting option?");
+                        System.out.println("Type '1' for yes\nType '2' for no");
+                        int extraSort = getUserInteger(0, 3);
+                        if (extraSort == 1){
+                            secondarySortOption(userChoice);
+                            controller.sortLengthInMinutes();
+
+
+                        } else{
+                            controller.sortLengthInMinutes();
+                            printMovieCollection();
+                        }
+                    }
+                    case 6 -> {
+                        System.out.println("Do you want to add a secondary sorting option?");
+                        System.out.println("Type '1' for yes\nType '2' for no");
+                        int extraSort = getUserInteger(0, 3);
+                        if (extraSort == 1){
+                            secondarySortOption(userChoice);
+                            controller.sortGenre();
+
+
+                        } else{
+                            controller.sortGenre();
+                            printMovieCollection();
+                        }
+                    }
+                    default -> System.out.println("Invalid input");
+                }
+        }
+
+        public void secondarySortOption(int primarySort) {
+            System.out.println("Type '1' to sort title\n" +
+                    "Type '2' to sort director\n" +
+                    "Type '3' to sort year created\n" +
+                    "Type '4' to sort color\n" +
+                    "Type '5' to sort duration in minutes\n" +
+                    "Type '6' to sort genre\n");
+
+            //ArrayList<MovieCollection> data = fh.loadData();
+            int secondarySortChoice ;
+
+            secondarySortChoice = getUserInteger(primarySort,6);
+            switch (secondarySortChoice) {
+                case 1 -> {
+                    Collections.sort(controller.getMovieCollection(), new TitleComparator().
+                            thenComparing(new DirectorComparator()));
+                    controller.sortTitle();
+                    printMovieCollection();
+                }
+                case 2 -> {
+                    controller.sortDirector();
+                    printMovieCollection();
+                }
+                case 3 -> {
+                    controller.sortYearCreated();
+                    printMovieCollection();
+                }
+                case 4 -> {
+                    controller.sortIsInColor();
+                    printMovieCollection();
+                }
+                case 5 -> {
+                    controller.sortLengthInMinutes();
+                    printMovieCollection();
+                }
+                case 6 -> {
+                    controller.sortGenre();
+                    printMovieCollection();
+                }
+            }
+        }
+
+
+    //***OTHER METHODS***-------------------------------------------------------------------------------------------
 
         public String getUserString () {
 
@@ -194,12 +343,12 @@ public class UserInterface {
             return userInput;
         }
 
-        public int getUserInteger ( int range){
+        public int getUserInteger (int exempt, int range ){
             int userInput;
             do {
                 userInput = input.nextInt();
                 input.nextLine();
-                if (userInput < 0 && userInput > range) {
+                if (userInput == exempt ||  userInput > range) {
                     System.out.println("Wrong input try again:");
                 }
 

@@ -1,7 +1,5 @@
 package domain_model;
-
 import comparator.*;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -94,52 +92,28 @@ MovieCollection {
      }
     }
 
-    public String sortTitle() {
+    public void sortTitle() {
         movieList.sort(new TitleComparator());
-        for (Movie movieTitle : movieList) {
-            return movieTitle.getTitle();
-        }
-        return null;
     }
 
-   public String sortDirector() {
+   public void sortDirector() {
         movieList.sort(new DirectorComparator());
-        for (Movie movieDirector : movieList) {
-            return movieDirector.getDirector();
-        }
-        return null;
    }
 
-    public int sortYearCreated() {
+    public void sortYearCreated() {
         movieList.sort(new YearCreatedComparator());
-        for (Movie movieYearCreated : movieList) {
-            return movieYearCreated.getYearCreated();
-        }
-        return null;
     }
 
-    public boolean sortIsInColor() {
+    public void sortIsInColor() {
         movieList.sort(new IsInColorComparator());
-        for (Movie movieIsInColor : movieList) {
-            return movieIsInColor.getIsInColor();
-        }
-        return null;
     }
 
-    public double lenghtMinutes() {
+    public void sortLenghtMinutes() {
         movieList.sort(new LengthMinutesComparator());
-        for (Movie movieLengthMinutes : movieList) {
-            return movieLengthMinutes.getLengthMinutes();
-        }
-        return null;
     }
 
-    public String sortGenre() {
+    public void sortGenre() {
         movieList.sort(new GenreComparator());
-        for (Movie movieGenre : movieList) {
-            return movieGenre.getGenre();
-        }
-        return null;
     }
 
 

@@ -43,5 +43,38 @@ public class Controller {
     public Movie findSpecificMovie(String movieTitle) {
         return collection.findSpecificMovie(movieTitle);
     }
+
+    public void sortTitle() {
+        collection.sortTitle();
+    }
+
+    public void sortDirector() {
+        collection.sortDirector();
+    }
+
+    public void sortYearCreated() {
+        collection.sortYearCreated();
+    }
+
+    public void sortIsInColor() {
+        collection.sortIsInColor();
+    }
+
+    public void sortLengthInMinutes() {
+        collection.sortLenghtMinutes();
+    }
+
+    public void sortGenre() {
+        collection.sortGenre();
+    }
+
+
+
+
+
+
+
+
+
     //------------------------------------------------------------------------------------------------------------------
 }
