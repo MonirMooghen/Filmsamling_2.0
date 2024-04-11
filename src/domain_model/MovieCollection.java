@@ -1,21 +1,20 @@
 package domain_model;
 
-import comparator.*;
+import data_source.FileHandler;
+import data_source.FileHandlerInterface;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
 
 public class
 MovieCollection {
 
     //***OBJECTS***--------------------------------------------------------------------------------------------------
     private ArrayList<Movie> movieList = new ArrayList<>();
-    private FileHandler fileHandler = new FileHandler();
+    private FileHandlerInterface fileHandler = new FileHandler();
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
-    public MovieCollection(){
+    public MovieCollection(FileHandlerInterface fileHandler){
+        this.fileHandler = fileHandler;
         this.movieList = fileHandler.loadMovieDataToFile();
     }
 
@@ -27,6 +26,7 @@ MovieCollection {
     //***METHODS***-----------------------------------------------------------------------------------------------------
     public void addMovie(Movie movie) {
         movieList.add(movie);
+        fileHandler.saveMovieToFile(movieList);
     }
 
     public ArrayList<Movie> searchMovie(String movieName) {
@@ -93,49 +93,6 @@ MovieCollection {
         return false;
      }
     }
-
-    public String viewMoviesByTitle() {
-        movieList.sort(new TitleComparator());
-        for (Movie movie : movieList) {
-            return movie.getTitle();
-        }
-        return null;
-    }
-
-   public String sortDirector() {
-        movieList.sort(new DirectorComparator());
-        for (Movie movieDirector : movieList) {
-            return movieDirector.getDirector();
-        }
-        return null;
-   }
-
-    public int sortYearCreated() {
-        movieList.sort(new YearCreatedComparator());
-        for (Movie movieYearCreated : movieList) {
-            return movieYearCreated.getYearCreated();
-        }
-        return null;
-    }
-
-    public Boolean sortIsInColor() {
-        movieList.sort(new IsInColorComparator());
-        for (Movie movieIsInColor : movieList) {
-            return movieIsInColor.getIsInColor();
-        }
-        return null;
-    }
-
-    public double sortIsInColor() {
-        movieList.sort(new LengthMinutesComparator());
-        for (Movie movieLengthMinutes : movieList) {
-            return movieLengthMinutes.getLengthMinutes();
-        }
-        return null;
-    }
-
-
-
 
 
 }

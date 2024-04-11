@@ -1,11 +1,9 @@
 package ui;
 
 import domain_model.Controller;
-import domain_model.FileHandler;
 import domain_model.Movie;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -93,7 +91,6 @@ public class UserInterface {
 
 
             controller.addMovie(new Movie(title, director, yearCreated, isInColor, lengthMinute, genre));
-            controller.saveListToFile();
 
             System.out.println("The movie has now been added to your movie collection");
             System.out.println("Movie details:");
