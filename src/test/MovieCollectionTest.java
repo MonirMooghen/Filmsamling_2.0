@@ -3,11 +3,12 @@ package test;
 import data_source.FileHandlerMock;
 import domain_model.Movie;
 import domain_model.MovieCollection;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MovieCollectionTest {
     private MovieCollection movieCollection;

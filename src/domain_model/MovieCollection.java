@@ -1,5 +1,6 @@
 package domain_model;
 
+import comparator.*;
 import data_source.FileHandler;
 import data_source.FileHandlerInterface;
 
@@ -13,7 +14,7 @@ MovieCollection {
     private FileHandlerInterface fileHandler = new FileHandler();
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
-    public MovieCollection(FileHandlerInterface fileHandler){
+    public MovieCollection(FileHandlerInterface fileHandler) {
         this.fileHandler = fileHandler;
         this.movieList = fileHandler.loadMovieDataToFile();
     }
@@ -73,6 +74,7 @@ MovieCollection {
         }
         return movieToEdit;
     }
+
     public Movie findSpecificMovie(String movieTitle) {
         Movie targetMovie = null;
         for (Movie movieToEdit : movieList) {
@@ -83,27 +85,30 @@ MovieCollection {
         }
         return targetMovie;
     }
-    public boolean deleteMovie(String movieTitle){
-    Movie tagetMovie = findSpecificMovie(movieTitle);
-    if (tagetMovie != null){
-        movieList.remove(tagetMovie);
-        fileHandler.saveMovieToFile(movieList);
-        return true;
-    } else {
-        return false;
-     }
+
+    public boolean deleteMovie(String movieTitle) {
+        Movie tagetMovie = findSpecificMovie(movieTitle);
+        if (tagetMovie != null) {
+            movieList.remove(tagetMovie);
+            fileHandler.saveMovieToFile(movieList);
+            return true;
+        } else {
+            return false;
+        }
     }
+
 
     public void sortTitle() {
-        movieList.sort(new TitleComparator());
+        movieList.sort(Movie.title_comparator);
+
     }
 
-   public void sortDirector() {
-        movieList.sort(new DirectorComparator());
-   }
+    public void sortDirector() {
+        movieList.sort(Movie.director_comparator);
+    }
 
     public void sortYearCreated() {
-        movieList.sort(new YearCreatedComparator());
+        movieList.sort(Movie.year_comparator);
     }
 
     public void sortIsInColor() {
@@ -111,17 +116,25 @@ MovieCollection {
     }
 
     public void sortLenghtMinutes() {
-        movieList.sort(new LengthMinutesComparator());
+        movieList.sort(Movie.length_minutes_comparator);
     }
 
     public void sortGenre() {
-        movieList.sort(new GenreComparator());
+        movieList.sort(Movie.genre_comparator);
     }
 
 
+    public void secondarySort(int chosenOption) {
+
+        switch (chosenOption) {
+            case 1 -> movieList.sort(new TitleComparator().thenComparing(new YearCreatedComparator()));
+            case 2 -> movieList.sort(new TitleComparator().thenComparing(new DirectorComparator()));
+            case 3 -> movieList.sort(new TitleComparator().thenComparing(new LengthMinutesComparator()));
+            case 4 -> movieList.sort(new TitleComparator().thenComparing(new GenreComparator()));
+        }
 
 
-
+    }
 
 
 }
