@@ -1,6 +1,7 @@
 package ui;
 
 import domain_model.Controller;
+import domain_model.FileHandler;
 import domain_model.Movie;
 
 import java.util.ArrayList;
@@ -16,13 +17,13 @@ public class UserInterface {
     //***START-PROGRAM***-----------------------------------------------------------------------------------------------
     public void startProgram() {
 
-        int userChoice = -1;
-
-
+        int userChoice = Integer.parseInt("-1");
 
             while (userChoice != 6) {
                 menu();
                 userChoice = getUserInteger(6);
+
+
                 switch (userChoice) {
                     case 0 -> {
                         menu();
@@ -40,7 +41,7 @@ public class UserInterface {
                         editMovie();
                     }
                     case 5 -> {
-                        deleteMovie();
+                       deleteMovie();
                     }
                     case 6 -> {
                         System.exit(0);
@@ -125,12 +126,12 @@ public class UserInterface {
             }
         }
 
-        public void editMovie () {
+        public void editMovie() {
             int menuOption = -1;
             System.out.println("Type the movie name to edit : ");
 
             String movieName = getUserString();
-            Movie targetMovie = controller.findMovieToEdit(movieName);
+            Movie targetMovie = controller.findSpecificMovie(movieName);
 
             if (targetMovie != null) {
                 System.out.println(targetMovie.toString());
@@ -154,9 +155,7 @@ public class UserInterface {
                 String newValue = getUserString();
                 Movie editedMovie = controller.movieEditor(targetMovie, menuOption, newValue);
                 System.out.println(editedMovie.toString());
-
             }
-
         }
 
         public void deleteMovie() {
@@ -207,7 +206,6 @@ public class UserInterface {
             } while (userInput < 0);
 
             return userInput;
-
         }
         //------------------------------------------------------------------------------------------------------------------
     }

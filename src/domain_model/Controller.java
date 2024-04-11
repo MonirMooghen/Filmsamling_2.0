@@ -36,5 +36,12 @@ public class Controller {
         dbManager.saveMovieToFile(getMovieCollection());
     }
 
+    public boolean deleteMovie(String movieTitle) {
+        return collection.deleteMovie(movieTitle);
+    }
+
+    public Movie findSpecificMovie(String movieTitle) {
+        return collection.findSpecificMovie(movieTitle);
+    }
     //------------------------------------------------------------------------------------------------------------------
 }

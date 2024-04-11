@@ -1,6 +1,6 @@
 package domain_model;
 
-import comparator.TitleComparator;
+import comparator.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,7 +17,6 @@ MovieCollection {
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public MovieCollection(){
         this.movieList = fileHandler.loadMovieDataToFile();
-
     }
 
     //***GETTER METHODS***----------------------------------------------------------------------------------------------
@@ -74,8 +73,26 @@ MovieCollection {
         }
         return movieToEdit;
     }
-    
-
+    public Movie findSpecificMovie(String movieTitle) {
+        Movie targetMovie = null;
+        for (Movie movieToEdit : movieList) {
+            if (movieToEdit.getTitle().equalsIgnoreCase(movieTitle)) {
+                targetMovie = movieToEdit;
+                return targetMovie;
+            }
+        }
+        return targetMovie;
+    }
+    public boolean deleteMovie(String movieTitle){
+    Movie tagetMovie = findSpecificMovie(movieTitle);
+    if (tagetMovie != null){
+        movieList.remove(tagetMovie);
+        fileHandler.saveMovieToFile(movieList);
+        return true;
+    } else {
+        return false;
+     }
+    }
 
     public String viewMoviesByTitle() {
         movieList.sort(new TitleComparator());
@@ -84,4 +101,41 @@ MovieCollection {
         }
         return null;
     }
+
+   public String sortDirector() {
+        movieList.sort(new DirectorComparator());
+        for (Movie movieDirector : movieList) {
+            return movieDirector.getDirector();
+        }
+        return null;
+   }
+
+    public int sortYearCreated() {
+        movieList.sort(new YearCreatedComparator());
+        for (Movie movieYearCreated : movieList) {
+            return movieYearCreated.getYearCreated();
+        }
+        return null;
+    }
+
+    public Boolean sortIsInColor() {
+        movieList.sort(new IsInColorComparator());
+        for (Movie movieIsInColor : movieList) {
+            return movieIsInColor.getIsInColor();
+        }
+        return null;
+    }
+
+    public double sortIsInColor() {
+        movieList.sort(new LengthMinutesComparator());
+        for (Movie movieLengthMinutes : movieList) {
+            return movieLengthMinutes.getLengthMinutes();
+        }
+        return null;
+    }
+
+
+
+
+
 }
