@@ -34,7 +34,7 @@ public class Movie {
         return yearCreated;
     }
 
-    public boolean isInColor() {
+    public boolean getIsInColor() {
         return isInColor;
     }
 

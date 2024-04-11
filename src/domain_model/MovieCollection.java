@@ -1,7 +1,10 @@
 package domain_model;
 
+import comparator.TitleComparator;
+
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class
@@ -85,15 +88,14 @@ MovieCollection {
             }
          return movieToEdit;
     }
+    
 
-    public void deleteMovie(Movie movieToDelete) {
-        for (int i = 0; i < movieList.size(); i++) {
-            Movie movie = movieList.get(i);
-            if (movie.equals(movieToDelete)) {
-                movieList.remove(i);
-                break;
-            }
+
+    public String viewMoviesByTitle() {
+        movieList.sort(new TitleComparator());
+        for (Movie movie : movieList) {
+            return movie.getTitle();
         }
-        fileHandler.saveMovieToFile(movieList);
+        return null;
     }
 }

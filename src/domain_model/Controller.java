@@ -48,9 +48,6 @@ public class Controller {
     public void saveListToFile() {
         dbManager.saveMovieToFile(getMovieCollection());
     }
-    public void deleteMovie(Movie movieToDelete) {
-        collection.deleteMovie(movieToDelete);
-    }
 
     //------------------------------------------------------------------------------------------------------------------
 }

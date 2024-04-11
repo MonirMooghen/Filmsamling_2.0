@@ -55,7 +55,7 @@ public class FileHandler {
                         movie.getTitle(),
                         movie.getDirector(),
                         movie.getYearCreated(),
-                        movie.isInColor(),
+                        movie.getIsInColor(),
                         movie.getLengthMinutes(),
                         movie.getGenre());
                 saveFile.println(csvLine);

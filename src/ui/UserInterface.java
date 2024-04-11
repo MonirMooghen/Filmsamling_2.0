@@ -162,27 +162,6 @@ public class UserInterface {
 
     }
 
-    public void deleteMovie() {
-        System.out.println("Please enter the title of the movie you wish to delete.");
-        input.nextLine();
-        boolean movieFound = false;
-        String userInput = input.nextLine();
-
-        Iterator<Movie> iterator = controller.getMovieCollection().iterator();
-        while (iterator.hasNext()) {
-            Movie movie = iterator.next();
-            if (userInput.equalsIgnoreCase(movie.getTitle())) {
-                iterator.remove();
-                System.out.println(movie.getTitle() + " has been successfully deleted.");
-                movieFound = true;
-                break;
-            }
-        }
-        if (!movieFound) {
-            System.out.println("There is no movie by that title in your collection.");
-        }
-    }
-
 
     //***OTHER METHODS***-----------------------------------------------------------------------------------------------
 
