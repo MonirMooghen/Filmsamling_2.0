@@ -94,10 +94,10 @@ MovieCollection {
      }
     }
 
-    public String viewMoviesByTitle() {
+    public String sortTitle() {
         movieList.sort(new TitleComparator());
-        for (Movie movie : movieList) {
-            return movie.getTitle();
+        for (Movie movieTitle : movieList) {
+            return movieTitle.getTitle();
         }
         return null;
     }
@@ -118,7 +118,7 @@ MovieCollection {
         return null;
     }
 
-    public Boolean sortIsInColor() {
+    public boolean sortIsInColor() {
         movieList.sort(new IsInColorComparator());
         for (Movie movieIsInColor : movieList) {
             return movieIsInColor.getIsInColor();
@@ -126,13 +126,23 @@ MovieCollection {
         return null;
     }
 
-    public double sortIsInColor() {
+    public double lenghtMinutes() {
         movieList.sort(new LengthMinutesComparator());
         for (Movie movieLengthMinutes : movieList) {
             return movieLengthMinutes.getLengthMinutes();
         }
         return null;
     }
+
+    public String sortGenre() {
+        movieList.sort(new GenreComparator());
+        for (Movie movieGenre : movieList) {
+            return movieGenre.getGenre();
+        }
+        return null;
+    }
+
+
 
 
 
