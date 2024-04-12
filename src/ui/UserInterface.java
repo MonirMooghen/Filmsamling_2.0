@@ -4,7 +4,7 @@ import comparator.DirectorComparator;
 import comparator.TitleComparator;
 import domain_model.Controller;
 import domain_model.Movie;
-import domain_model.MovieCollection;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;

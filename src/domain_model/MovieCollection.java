@@ -1,5 +1,6 @@
 package domain_model;
 
+import comparator.*;
 import data_source.FileHandler;
 import data_source.FileHandlerInterface;
 
