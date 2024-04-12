@@ -33,7 +33,6 @@ public class UserInterface {
                         searchMovie();
                     }
                     case 3 -> {
-                        controller.sortTitle();
                         printMovieCollection();
                     }
                     case 4 -> {
@@ -266,6 +265,7 @@ public class UserInterface {
                 userInput = input.nextInt();
                 input.nextLine();
                 if ( userInput > range) {
+                    userInput = -1;
                     System.out.println("Wrong input try again:");
                 }
 
