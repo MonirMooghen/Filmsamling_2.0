@@ -1,5 +1,7 @@
 package domain_model;
 
+import java.util.Comparator;
+
 public class Movie {
 
     //***ATTRIBUTES***---------------------------------------------------------------------------------------------------
@@ -85,6 +87,14 @@ public class Movie {
         }
         return result + "\n";
     }
+
+
+    public static Comparator<Movie> year_comparator = Comparator.comparing(Movie::getYearCreated);
+    public static Comparator<Movie> length_minutes_comparator = Comparator.comparing(Movie::getLengthMinutes);
+    public static Comparator<Movie> genre_comparator = Comparator.comparing(Movie::getGenre);
+    public static Comparator<Movie> title_comparator = Comparator.comparing(Movie::getTitle);
+    public static Comparator<Movie> director_comparator = Comparator.comparing(Movie::getDirector);
+
 
     //------------------------------------------------------------------------------------------------------------------
 }

@@ -44,6 +44,8 @@ public class Controller {
 
     public void sortTitle() {
         collection.sortTitle();
+//       collection.naturalOrderSort();
+
     }
 
     public void sortDirector() {
@@ -66,12 +68,9 @@ public class Controller {
         collection.sortGenre();
     }
 
-
-
-
-
-
-
+    public void secondarySort(int chosenOption) {
+        collection.secondarySort(chosenOption);
+    }
 
 
     //------------------------------------------------------------------------------------------------------------------

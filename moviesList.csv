@@ -1,17 +1,24 @@
-City of God,Fernando Meirelles,2002,false,130,Crime
-Goodfellas,Martin Scorsese,1990,false,146,Crime
-Life Is Beautiful,Roberto Benigni,1997,false,116,Comedy
-Schindler's List,Steven Spielberg,1993,false,195,History
-Se7en,David Fincher,1995,false,127,Thriller
-Spirited Away, Hayao Miyazaki,2001,false,125,Animation
-The Dark Knight,Christopher Nolan,2008,false,152,Action
-The Godfather: Part II,Francis Ford Coppola,1974,false,202,Crime
-The Lion King,Roger Allers,1994,false,88,Animation
-The Lord of the Rings: The Fellowship of the Ring,Peter Jackson,2001,false,178,Fantasy
-The Lord of the Rings: The Return of the King,Peter Jackson,2003,false,201,Fantasy
-The Lord of the Rings: The Two Towers,Peter Jackson,2002,false,179,Fantasy
-The Matrix Reloaded,Lana Wachowski,2003,false,138,Action
-The Shawshank Redemption,Frank Darabont,1994,false,142,Drama
-The Silence of the Lambs,Jonathan Demme,1991,false,118,Thriller
-The Usual Suspects,Bryan Singer,1995,false,106,Thriller
-A,1,1,true,123,genre
+Title,Director,YearCreated,IsInColor,LengthMinutes,Genre
+The Godfather,Francis Ford Coppola,1972,yes,175,Crime
+The Dark Knight,Christopher Nolan,2008,yes,152,Action
+Schindler's List,Steven Spielberg,1993,yes,195,History
+Pulp Fiction,Quentin Tarantino,1994,yes,154,Crime
+The Lord of the Rings: The Return of the King,Peter Jackson,2003,yes,201,Fantasy
+Forrest Gump,Robert Zemeckis,1994,yes,142,Drama
+Inception,Christopher Nolan,2010,yes,148,Action
+The Matrix,Lana Wachowski,1999,yes,136,Action
+The Silence of the Lambs,Jonathan Demme,1991,yes,118,Thriller
+The Shawshank Redemption,Frank Darabont,1994,yes,142,Drama
+The Godfather: Part II,Francis Ford Coppola,1974,yes,202,Crime
+The Lord of the Rings: The Fellowship of the Ring,Peter Jackson,2001,yes,178,Fantasy
+Fight Club,David Fincher,1999,yes,139,Drama
+Forrest Gump,Robert Zemeckis,1994,yes,142,Drama
+Goodfellas,Martin Scorsese,1990,yes,146,Crime
+The Lord of the Rings: The Two Towers,Peter Jackson,2002,yes,179,Fantasy
+The Matrix Reloaded,Lana Wachowski,2003,yes,138,Action
+Se7en,David Fincher,1995,yes,127,Thriller
+City of God,Fernando Meirelles,2002,yes,130,Crime
+Life Is Beautiful,Roberto Benigni,1997,yes,116,Comedy
+The Usual Suspects,Bryan Singer,1995,yes,106,Thriller
+The Lion King,Roger Allers,1994,yes,88,Animation
+Spirited Away, Hayao Miyazaki,2001,yes,125,Animation

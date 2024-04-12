@@ -21,7 +21,8 @@ public class FileHandler implements FileHandlerInterface {
 
         try {
             sc = new Scanner(file);
-           // sc.nextLine(); //skip første linj- delete because our file has not title, genre etc ..
+
+                sc.nextLine();//skip første linj-
 
         } catch (FileNotFoundException e) {
             System.out.println("File is not found");
@@ -35,7 +36,7 @@ public class FileHandler implements FileHandlerInterface {
             String title = attributes[0];
             String director = attributes[1];
             int yearCreated = Integer.parseInt(attributes[2]);
-            boolean isInColor = Boolean.parseBoolean(attributes[3]);
+            boolean isInColor = attributes[3].equalsIgnoreCase("yes");
             int lengthMinutes = Integer.parseInt(attributes[4]);
             String genre = attributes[5];
             var movie = new Movie(title, director, yearCreated, isInColor, lengthMinutes, genre);
@@ -51,13 +52,15 @@ public class FileHandler implements FileHandlerInterface {
         PrintStream saveFile = null;
         try {
             saveFile = new PrintStream("moviesList.csv");
+            saveFile.println("Title,Director,YearCreated,IsInColor,LengthMinutes,Genre");
 
             for (Movie movie : movieList) {
-                String csvLine = String.format("%s,%s,%d,%b,%d,%s",
+                String isColoredMovie = (movie.getIsInColor()) ? "yes" : "no";
+                String csvLine = String.format("%s,%s,%d,%s,%d,%s",
                         movie.getTitle(),
                         movie.getDirector(),
                         movie.getYearCreated(),
-                        movie.getIsInColor(),
+                        isColoredMovie,
                         movie.getLengthMinutes(),
                         movie.getGenre());
                 saveFile.println(csvLine);
