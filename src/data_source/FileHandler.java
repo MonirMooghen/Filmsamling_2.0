@@ -56,7 +56,7 @@ public class FileHandler implements FileHandlerInterface {
 
             for (Movie movie : movieList) {
                 String isColoredMovie = (movie.getIsInColor()) ? "yes" : "no";
-                String csvLine = String.format("%s,%s,%d,%b,%d,%s",
+                String csvLine = String.format("%s,%s,%d,%s,%d,%s",
                         movie.getTitle(),
                         movie.getDirector(),
                         movie.getYearCreated(),
